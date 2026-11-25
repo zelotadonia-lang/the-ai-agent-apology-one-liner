@@ -20,6 +20,8 @@ def main() -> None:
         data = f.read()
     assert data == ENTRY.encode("utf-8"), "entry.txt does not match the winning line"
     assert len(data) == 73, f"entry.txt must be 73 bytes, got {len(data)}"
+    # Bounty gate: entry must be 1-159 characters.
+    assert 1 <= len(ENTRY) <= 159, f"ENTRY must be 1-159 chars, got {len(ENTRY)}"
     assert not data.endswith(b"\n"), "entry.txt must not end with a newline"
 
 
